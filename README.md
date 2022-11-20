@@ -8,7 +8,7 @@ Through the project, we intend to predict NFL Fantasy Football statistics for th
 
 # Methodology
 
-
+In order to determine next year Fantasy Football PPR predcitions, we first parse through open-source data to generate comprehensive data sets that merge statistics on each player across various years (2015-2019). Following the data collection process, linear regression models will generate the most important coefficients per position and accordingly produce a prediction regression model that outputs PPR statistics based upon. With this established, we will lastly analyze the results of our prediction model against actual Next Year Fantasy PPR data in order to determine the accuracy of our methodology. 
 
 
 # Parsing the Data
@@ -19,11 +19,22 @@ We then built a master table that includes the data from the years 2015-2019 wit
 
 # Regression Assumptions
 
-1. a player's performance from more than one year prior is uncorrelated their performance in the upcoming season
-2. the residuals of each data point are uncorrelated
-3. residuals are normally distributed
+Through our regression, we make the following assumptions: 
 
-# Analysis
+1. A player's performance from more than one year prior is uncorrelated their performance in the upcoming season
+2. The residuals of each data point are uncorrelated
+3. Residuals are normally distributed
+
+# Coefficients & Linear Model
+For quarterback statistic models, we constructed linear regression models that correlated previous year statistics from (2015-2019) to actual Next Year PPR data. Specifically, an analysis of all relavent statistic combinations determined the combination of predictors withto the highest R-squared value relative to actual Next Year PPR statistics. As such, the following parameters were used: Adjusted Net Yards Per Attempt (Average yardage per passing attempt accounting for touchdowns and interceptions), Touchdown Percentage, Completion Percentage, Yards per Completion, Rushing Touchdowns, and Age. With this data, we sourced relavent coefficient values and generated a linear model that takes into account current year statistics. The results of this analysis are further explained in the following section. 
+
+Similarily, for the running back model, the same methodology applies and the combination of parameters with the highest R-squared value relative to actual Next Year PPR statistics can be listed as follows: Rush Attempts, Rush Yards per Attempt, Rush Yards per Game, Yards per Touch, Receptiosn per Game, and Reception Yards. With these coefficients, we generated a linear model to predict Next Year Fantasy statistics. 
+
+Lastly, we additionally analyzed predictors for wide receivers with the following paramters yielding the highest R-squared values against Next Year Fantasy Football PPR statistics: Receing Yards per Game, Receptions per Game, Yards per REception, Total Receiving Yards, Targets, and Age. 
+
+For each position, we required at least 50 fantasy points both in the current year and the next year in order to avoid outliers from retiring or injured players that adversely affects the quality of predictions. At the same time, this threshold removes biases from one off game performances that significantly inflates player per game fantasy results. Moreover, in order to compare the results of our model to actual next year fantasy results, a sum of differences  calculated the average disparity between the two measures as an error anlaysis.  
+
+## Analysis
 
 ## Interpretation of Coefficients
 
