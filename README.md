@@ -2,6 +2,15 @@
 
 Credit for this data goes to Pro Football Reference. Learn more at https://www.pro-football-reference.com/
 
+# Introduction
+
+Through the project, we intend to predict NFL Fantasy Football statistics for the upcoming year based upon input data from previous years. Following the inception of the game virtually, fantasy football not only experiences high popularity as exemplified by its 60 million annual players, but also serves as a driving force for the sport's growth itself. In particular, the ability to replicate the role of a General Manager draws into a user's managerial aspirations, while the social interconnectivity of the game creates an intrinsic network effect. Statistically, fantasy football makes an interesting candidate for prediction modelling due to the abundance of available data on each player and the importance of predicting player performance. Within the game, the initial drafting of players represents the most crucial stage for user success, so an understanding of their statistical projections certainly serves as a benefit. At the same time, since each position acculumates different statistics, the assessment of players based on different models creates further interesting subtopics in the analysis. With the combination of these factors, the project implements the linear regression of multiple predictors to draw player PPR Fantasy Projections given the input of this year's data.  
+
+# Methodology
+
+
+
+
 # Parsing the Data
 
 Pro Football Reference provides passing data and from scrimmage data (which includes rushing stats and receiving stats) for many NFL seasons. Since quarterbacks can accrue from scrimmage stats and running backs and wide receivers can accrue passing stats, it was necessary to combine the passing and from scrimmage data into one table to calculate how many fantasy points a player got in a given year. We did this with the built-in Pandas funciton merge(). Many players are also missing certain stats (for example many wide receivers have no rush attempts), so we imputed all missing values to 0. Finally, we created several new columns to have at our disposal for when we go to run our regressions. These include boolean variables for whether or not a player made the pro bowl, a boolean for whether or not a player got named to first team all pro, columns for many important stats averaged over the number of games played by that player that season, PPR fantasy points, and PPR fantasy points per game. (Note: PPR stands for point per reception - it's a popular scoring system for fantasy football).
