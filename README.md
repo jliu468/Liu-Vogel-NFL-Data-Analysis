@@ -13,3 +13,42 @@ We then built a master table that includes the data from the years 2015-2019 wit
 1. a player's performance from more than one year prior is uncorrelated their performance in the upcoming season
 2. the residuals of each data point are uncorrelated
 3. residuals are normally distributed
+
+# Analysis
+
+## Interpretation of Coefficients
+
+The coefficient on each parameter represents the average increase in fantasy output in the following year for a one unit increase in that parameter. However, several of the parameters are correlated (such as touchdown percentage and completion percentage), so their coefficients cannot be determined independently. Instead, the model will be more equipped to find the sum of such coefficients.
+
+### Quarterback Regression Parameters
+1. Adjusted net yards per attempt (average yardage per passing attempt accounting for touchdowns and interceptions)
+2. Touchdown percentage
+3. Completion percentage
+4. Yards per completion
+5. Rushing touchdowns
+6. Age
+
+### Running Back Regression Parameters
+1. Rush attempts
+2. Rush yards per attempt
+3. Rush yards per game
+4. Yards per touch
+5. Receptions per game
+6. Reception yards
+
+### Wide Receiver Regression Parameters
+1. Receiving yards per game
+2. Receptions per game
+3. Yards per reception
+4. Total receiving yards
+5. Targets
+6. Age
+
+
+## Potential Confounding Variables
+
+Even our best multivariable regression models don't have R-squared values about 0.3. Low R-squared means that much of the variation in the output variable is not explained by the parameters. This is not surprising considering how simple these models are and how complicated football is. We record future exploration of this topic include the following in all models:
+
+1. a metric of strength of schedule (power rankings of opposing defenses)
+2. a metric for liklihood of injury (could be found using a player's injury history)
+3. extra parameters for fantasy production in previous years (not just 1 season before the season we are trying to predict)
